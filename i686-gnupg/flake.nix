@@ -14,6 +14,9 @@
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           ({ pkgs, ... }: {
             boot.kernelPackages = pkgs.linuxPackages_latest;
+            # This is to support the Pentium M processor on the ThinkPad X41.
+            # https://askubuntu.com/questions/117744/how-can-i-install-on-a-non-pae-cpu-error-kernel-requires-features-not-present
+            boot.kernelParams = [ "forcepae" ];
 
             services.pcscd.enable = true;
             services.udev.packages = [ pkgs.yubikey-personalization ];
