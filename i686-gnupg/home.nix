@@ -51,6 +51,6 @@
     enableExtraSocket = true;
     # Enables the smartcard daemon (for working with YubiKeys, etc.).
     enableScDaemon = true;
-    pinentryFlavor = "${pkgs.pinentry-curses}/bin/pinentry-curses";
+    pinentryFlavor = "curses";
   };
 }
