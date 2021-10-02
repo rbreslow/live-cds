@@ -27,6 +27,7 @@
             boot.kernelParams = [ "forcepae" ];
 
             environment.systemPackages = [ 
+              pkgs.cdrtools
               # https://www.jabberwocky.com/software/paperkey/
               pkgs.paperkey
               # TODO: What's the difference between yubikey-manager and
