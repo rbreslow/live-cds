@@ -4,7 +4,7 @@
   inputs = {
     # Using Nix stable to increase the likelihood of i686 packages being cached.
     nixpkgs.url = "github:nixos/nixpkgs/release-21.05";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-21.05";
   };
 
   outputs = { self, home-manager, nixpkgs, ... }: {
