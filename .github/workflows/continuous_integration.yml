@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        live_cd: ["i686-gnupg"]
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: cachix/install-nix-action@v14
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - run: nix build ./${{ matrix.live_cd }}/.#nixosConfigurations.default.config.system.build.isoImage
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.live_cd }}
+          path: |
+            result/iso/*
