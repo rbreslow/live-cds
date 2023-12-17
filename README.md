@@ -1,11 +1,13 @@
 # Live CDs
 
-This repository contains a collection of Nix Flakes for building bootable ISO images.
+This repository contains a Nix Flake for building bootable ISO images, including a Live CD for generating private keys with GnuPG.
 
-## e.g.,
+## Getting Started
+
+To build an `i686-linux` variant of the GnuPG Live CD:
 
 ```console
-$ nix build '.#nixosConfigurations.default.config.system.build.isoImage'
+$ nix build '.#nixosConfigurations.i686-linux.gnupg.config.system.build.isoImage'
 . . .
 [1/29/31 built] building squashfs.img: Creating 4.0 filesystem on /nix/store/jirycvdinb4j9lcqzxw9nc5xn93dhkk3-squashfs.img, block size 1048576.
 building '/nix/store/sg6yzg686ac9vfp3fjv7wm033qsj48f0-nixos-21.05.20211001.e134154-i686-linux.iso.drv'...

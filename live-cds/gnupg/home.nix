@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs = {
@@ -30,6 +30,7 @@
         # https://crypto.stackexchange.com/questions/48906/what-exactly-does-s2k-do-in-gpg
         s2k-cipher-algo = "AES256";
         s2k-digest-algo = "SHA512";
+        s2k-mode = "3";
         # The GPG agent will calibrate this value based on "a count
         # which requires by default 100ms to mangle a given passphrase."
         # Although you can change the default calibration time, it seems
@@ -53,4 +54,6 @@
     enableScDaemon = true;
     pinentryFlavor = "curses";
   };
+
+  home.stateVersion = "23.05";
 }
